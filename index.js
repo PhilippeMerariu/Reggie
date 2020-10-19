@@ -3,16 +3,32 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
- console.log(`Logged in as ${client.user.tag}!`);
+	console.log(`Logged in as ${client.user.tag}!`);
+	
+	//list servers bot is connected to
+	console.log("\nServers:");
+	client.guilds.cache.forEach((guild) => {
+		console.log(" - " + guild.name);
+		
+		//list channels bot in on
+		guild.channels.cache.forEach((channel) => {
+			console.log(" -- " + channel.name + " (" + channel.type + ") - " + channel.id);
+		})
+	});
+	
  });
 
 client.on('message', msg => {
+	//console.log(msg);
 	var message = msg.content.toLowerCase();
+	var channelId = msg.channel.id;
+	//console.log(msg.channel.id);
+	var channel = client.channels.cache.get(channelId);
 	if (message.startsWith('r!')){
 		 message = message.substring(2); //extracts the message without the "r!"
 		
 		 if (message === 'beer') {
-			msg.reply('yummy');
+			channel.send('yummy');
 		}
 	}
  });
