@@ -1,0 +1,22 @@
+{
+  "name": "badgerbot",
+  "version": "1.0.0",
+  "description": "BadgerBot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilippeMerariu/BadgerBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhilippeMerariu/BadgerBot/issues"
+  },
+  "homepage": "https://github.com/PhilippeMerariu/BadgerBot#readme",
+  "dependencies": {
+    "discord.js": "^12.4.0"
+  }
+}
