@@ -14,8 +14,8 @@ client.on('message', msg => {
 		if (message === 'beer') {
 			msg.reply('yummy');
 		}
-		if (message === "ca marche pas") {
-			msg.reply('CA COURT')
+		if (message === "ca marche pas" || message === "ça marche pas") {
+			msg.reply('ÇA COURT')
 		}
 	}
  });
