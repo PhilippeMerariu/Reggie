@@ -14,10 +14,12 @@ client.on('message', msg => {
 		if (message === 'beer') {
 			msg.reply('yummy');
 		}
+	}else{
 		if (message === "ca marche pas" || message === "ça marche pas") {
-			msg.reply('ÇA COURT')
+			msg.reply('ÇA COURT');
 		}
 	}
+
  });
 
 client.login(token); //bot token --> should NOT be commited and made public.
