@@ -30,6 +30,9 @@ client.on('message', msg => {
 		 if (message === 'beer') {
 			channel.send('yummy');
 		}
+		if (message === "ca marche pas" || message === "ça marche pas") {
+			msg.reply('ÇA COURT')
+		}
 	}
  });
 
