@@ -19,19 +19,27 @@ client.on('ready', () => {
  });
 
 client.on('message', msg => {
-	//console.log(msg);
 	var message = msg.content.toLowerCase();
 	var channelId = msg.channel.id;
-	//console.log(msg.channel.id);
 	var channel = client.channels.cache.get(channelId);
+	
 	if (message.startsWith('r!')){
 		 message = message.substring(2); //extracts the message without the "r!"
 		
 		 if (message === 'beer') {
 			channel.send('yummy');
 		}
-		if (message === "ca marche pas" || message === "ça marche pas") {
+		else if (message === "ca marche pas" || message === "ça marche pas") {
 			msg.reply('ÇA COURT')
+		}
+		else if (message == "beer picture"){
+			//const beerImage = new Discord.Attachment('./images/beer.png');
+			//channel.send('');
+		}
+	}
+	else{
+		if (message == "hello"){
+			channel.send("I am ALWAYS listening!");
 		}
 	}
  });
