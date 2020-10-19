@@ -1,3 +1,4 @@
+const {token} = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -6,9 +7,14 @@ client.on('ready', () => {
  });
 
 client.on('message', msg => {
- if (msg.content === 'ping') {
- msg.reply('pong');
- }
+	var message = msg.content.toLowerCase();
+	if (message.startsWith('r!')){
+		 message = message.substring(2); //extracts the message without the "r!"
+		
+		 if (message === 'beer') {
+			msg.reply('yummy');
+		}
+	}
  });
 
-client.login('token'); //bot token --> should NOT be commited and made public.
+client.login(token); //bot token --> should NOT be commited and made public.
