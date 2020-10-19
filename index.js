@@ -11,8 +11,11 @@ client.on('message', msg => {
 	if (message.startsWith('r!')){
 		 message = message.substring(2); //extracts the message without the "r!"
 		
-		 if (message === 'beer') {
+		if (message === 'beer') {
 			msg.reply('yummy');
+		}
+		if (message === "ca marche pas" || message === "ça marche pas") {
+			msg.reply('ÇA COURT')
 		}
 	}
  });
