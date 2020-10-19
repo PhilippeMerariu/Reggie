@@ -4,18 +4,18 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
-	
+
 	//list servers bot is connected to
 	console.log("\nServers:");
 	client.guilds.cache.forEach((guild) => {
 		console.log(" - " + guild.name);
-		
+
 		//list channels bot in on
 		guild.channels.cache.forEach((channel) => {
 			console.log(" -- " + channel.name + " (" + channel.type + ") - " + channel.id);
 		})
 	});
-	
+
  });
 
 client.on('message', msg => {
@@ -26,13 +26,13 @@ client.on('message', msg => {
 	var channel = client.channels.cache.get(channelId);
 	if (message.startsWith('r!')){
 		 message = message.substring(2); //extracts the message without the "r!"
-		
+
 		 if (message === 'beer') {
 			channel.send('yummy');
 		}
 	}else{
 		if (message === "ca marche pas" || message === "ça marche pas") {
-			msg.reply('ÇA COURT');
+			channel.send('ÇA COURT');
 		}
 	}
 
