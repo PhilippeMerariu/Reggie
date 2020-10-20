@@ -36,8 +36,6 @@ client.on('ready', () => {
  */
 client.on('message', processMessage);
 
-//client.login(token); //bot token --> should NOT be commited and made public.
-
 	/**
 	 * Main function to handle processing of messages
 	 * Parses message to differentiate between r!command and regular message (eg notch)
@@ -66,6 +64,11 @@ client.on('message', processMessage);
 			}
 			else if (dicePattern.test(message)){
 				commands.dice.main(channel, message);
+			}
+			else if (message === commands.help.name){
+				var helpBox = new Discord.MessageEmbed();
+				commands.help(channel, helpBox);
+				
 			}
 		}
 		//commands that do NOT look for keyword
