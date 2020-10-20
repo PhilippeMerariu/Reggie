@@ -44,13 +44,15 @@ client.on('message', processMessage);
 	 * @param msg
 	 */
 	function processMessage (msg) {
-		//console.log(msg);
 		var message = msg.content.toLowerCase();
 		var channelId = msg.channel.id;
-		//console.log(msg.channel.id);
 		var channel = client.channels.cache.get(channelId);
+		
+		var dicePattern = new RegExp('\\d+[d]\\d+'); //search for '#d#' expression.
+		
 
 		//command and message handling block
+		//commands that look for keyword
 		if (message.startsWith(keyword)){
 			message = message.substring(2); //extracts the message without the "r!"
 			if (message === commands.beer.name) {
@@ -62,7 +64,11 @@ client.on('message', processMessage);
 			else if (message === commands.drink.name){
 				commands.drink.main(channel);
 			}
+			else if (dicePattern.test(message)){
+				commands.dice.main(channel, message);
+			}
 		}
+		//commands that do NOT look for keyword
 		else{
 			if (commands.caCourt.caMarche(message)) {
 				commands.caCourt.court(channel);
