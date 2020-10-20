@@ -15,5 +15,6 @@ module.exports = {
 		}
 	},
     name: 'dice',
-    type: 'active'
+    type: 'active',
+	desc: ' - r!xdy \t--> roll x# of y-sided dice'
 }
