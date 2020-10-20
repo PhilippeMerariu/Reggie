@@ -1,7 +1,13 @@
 const {token} = require('./config.json');
 const Discord = require('discord.js');
+const CommandStore = require('./commandStore');
 const client = new Discord.Client();
 
+commands = commandStore.commands;
+
+/**
+ * Setup
+ */
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 
@@ -18,42 +24,44 @@ client.on('ready', () => {
 
  });
 
-client.on('message', msg => {
+/**
+ * Response to command requests and messages
+ */
+client.on('message', processMessage);
+
+client.login(token); //bot token --> should NOT be commited and made public.
+
+/**
+ * Main function to handle processing of messages
+ * Parses message to differentiate between r!command and regular message (eg notch)
+ * @param msg
+ */
+function processMessage (msg) {
 	//console.log(msg);
 	var message = msg.content.toLowerCase();
 	var channelId = msg.channel.id;
 	//console.log(msg.channel.id);
 	var channel = client.channels.cache.get(channelId);
-	if (message.startsWith('r!')){
-		 message = message.substring(2); //extracts the message without the "r!"
 
-		if (message === 'beer') {
-			channel.send('yummy');
+	//command and message handling block
+	if (message.startsWith('r!')){
+		message = message.substring(2); //extracts the message without the "r!"
+		if (message === commands.beer.name) {
+			commands.beer.main(channel);
 		}
-		else if (message === 'flops') {
-			channel.send('F')
-			channel.send(':clap::clap:    :clap::clap:')
-			channel.send('L')
-			channel.send(':clap::clap:    :clap::clap:')
-			channel.send('O')
-			channel.send(':clap::clap:    :clap::clap:')
-			channel.send('P')
-			channel.send(':clap::clap:    :clap::clap:')
-			channel.send('Flopsssssss')
+		else if (message === commands.flops.name) {
+			commands.flops.main(channel);
 		}
-		else if (message === 'drink'){
-			channel.send(new Discord.MessageAttachment('./images/beer2.png'));
+		else if (message === commands.drink.name){
+			commands.drink.main(channel);
 		}
 	}
 	else{
-		if (message === "ca marche pas" || message === "ça marche pas") {
-			channel.send('ÇA COURT');
+		if (commands.caCourt.caMarche(message)) {
+			commands.caCourt.court(channel);
 		}
-		if ((message.includes("i will") || message.includes("im gonna") || message.includes("i'm gonna") ) && !message.includes("no notch")) {
-			channel.send('notch bitch');
+		if (commands.notch.notchable(message)) {
+			commands.notch.main(channel);
 		}
 	}
-
- });
-
-client.login(token); //bot token --> should NOT be commited and made public.
+}
