@@ -3,7 +3,7 @@ module.exports = {
         channel.send('notch bitch');
     },
     notchable: (msg) => {
-        return (message.includes("i will") || message.includes("im gonna") || message.includes("i'm gonna") ) && !message.includes("no notch")
+        return (msg.includes("i will") || msg.includes("im gonna") || msg.includes("i'm gonna") ) && !msg.includes("no notch")
     },
     name: 'notch',
     type: 'passive'
