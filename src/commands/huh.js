@@ -11,7 +11,7 @@ let lines = [
 
 module.exports = {
     main: (channel, msg, modifiers) => {
-        channel.send(lines[Math.floor(Math.random(lines.length))]);
+        channel.send(lines[Math.floor(Math.random()*lines.length)]);
     },
     canHuh: (msg) => {
         return huhPattern.test(msg);
