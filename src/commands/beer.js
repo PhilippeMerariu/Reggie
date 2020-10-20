@@ -5,5 +5,5 @@ module.exports = {
 	
     name: 'beer',
     type: 'active',
-	desc: ' - r!beer \t--> replies with yummy'
+	desc: ' - r!beer \t--> replies with \'yummy\''
 }

@@ -12,9 +12,9 @@ exports.commands = {
 		var description = "";
 		//description = commands.beer.desc + "\n" + commands.drink.desc;
 		for (const key in commands) {
-			//console.log(key);
+			console.log(key + commands[key].type);
 			//console.log(commands[key].desc);
-			if (commands[key].desc != undefined){
+			if (commands[key].type == 'active'){
 				description += commands[key].desc + "\n";
 			}
 		}
