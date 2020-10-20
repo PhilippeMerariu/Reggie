@@ -44,22 +44,27 @@ client.on('message', (msg) => {
             channel.send(':clap::clap:    :clap::clap:')
             channel.send('P')
             channel.send(':clap::clap:    :clap::clap:')
-			channel.send('Flopsssssss')	
-        } else if (message.match(dicePattern)) { // checks if message is formatted like [numDice]d[numSides]
+            channel.send('Flopsssssss')
+        } else if (message.match(dicePattern)) {
+            // checks if message is formatted like [numDice]d[numSides]
             var xy = message.split('d')
             var numDice = parseInt(xy[0])
             var numSides = parseInt(xy[1])
 
+            channel.send('rolling die ')
+            // To add a bit of suspense lol
+
+            for (j = 0; j < 3; j++) {
+                setTimeout(() => {
+                    channel.send('.')
+                }, 200)
+            }
+
             for (let i = 0; i < numDice; i++) {
-				channel.send('rolling dice ' + (i + 1))
-				// To add a bit of suspense lol
-                for (j = 0; j < 3; j++) {
-                    setTimeout(() => {
-                        channel.send('.')
-                    }, 500)
-				}
-				// + 1 because dices should start at 1 not 0
-				channel.send('Result: ' + Math.floor(Math.random() * numSides + 1));
+                // + 1 because dices should start at 1 not 0
+                channel.send(
+                    'Dice ' + i + ':' + Math.floor(Math.random() * numSides + 1)
+				)
             }
         }
     } else {

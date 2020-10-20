@@ -1,2 +1,4 @@
 config.json
 .prettierrc
+.vscode
+node_modules
