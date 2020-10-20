@@ -34,6 +34,9 @@ client.on('message', msg => {
 		if (message === "ca marche pas" || message === "ça marche pas") {
 			channel.send('ÇA COURT');
 		}
+		if (message.includes("i will") || message.includes("im gonna") || message.includes("i'm gonna") ) {
+			channel.send('notch bitch');
+		}
 	}
 
  });
