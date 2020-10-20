@@ -1,4 +1,4 @@
-let huhPattern = new RegExp('^([hH]uh|[wW]hat\\?*$|[hH]m+|[nN]eed\\ssomething|[cC]ome\\shere\\soften)\\?*') //search for huh?, what? hmm*?,
+let huhPattern = new RegExp('^([hH]uh|[wW]hat\\?*|[hH]m+|[nN]eed\\ssomething|[cC]ome\\shere\\soften|\\?*)\\?*') //search for huh?, what? hmm*?,
 
 let lines = [
     "Huh?",
@@ -6,7 +6,9 @@ let lines = [
     "So uhh... you come here often?",
     "yOu cOmE hErE a LoT?",
     "What?",
-    "Hmm?"
+    "Hmm?",
+    ":thinking:",
+    "?"
 ]
 
 module.exports = {
@@ -17,5 +19,6 @@ module.exports = {
         return huhPattern.test(msg);
     },
     name: 'huh',
-    type: 'passive'
+    type: 'passive',
+    desc: "Annoys people with huh? what? need something?"
 }
