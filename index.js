@@ -74,5 +74,4 @@ client.on('message', (msg) => {
         }
     }
 })
-
 client.login(token) //bot token --> should NOT be commited and made public.
