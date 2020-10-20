@@ -27,10 +27,10 @@ client.on('message', msg => {
 	if (message.startsWith('r!')){
 		 message = message.substring(2); //extracts the message without the "r!"
 
-		 if (message === 'beer') {
+		if (message === 'beer') {
 			channel.send('yummy');
 		}
-		if (message === 'flops') {
+		else if (message === 'flops') {
 			channel.send('F')
 			channel.send(':clap::clap:    :clap::clap:')
 			channel.send('L')
@@ -41,11 +41,15 @@ client.on('message', msg => {
 			channel.send(':clap::clap:    :clap::clap:')
 			channel.send('Flopsssssss')
 		}
-	}else{
+		else if (message === 'drink'){
+			channel.send(new Discord.MessageAttachment('./images/beer2.png'));
+		}
+	}
+	else{
 		if (message === "ca marche pas" || message === "ça marche pas") {
 			channel.send('ÇA COURT');
 		}
-		if (message.includes("i will") || message.includes("im gonna") || message.includes("i'm gonna") ) {
+		if ((message.includes("i will") || message.includes("im gonna") || message.includes("i'm gonna")) && !message.includes("no notch")) {
 			channel.send('notch bitch');
 		}
 	}
