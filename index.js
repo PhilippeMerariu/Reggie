@@ -30,6 +30,17 @@ client.on('message', msg => {
 		 if (message === 'beer') {
 			channel.send('yummy');
 		}
+		if (message === 'flops') {
+			channel.send('F')
+			channel.send(':clap::clap:    :clap::clap:')
+			channel.send('L')
+			channel.send(':clap::clap:    :clap::clap:')
+			channel.send('O')
+			channel.send(':clap::clap:    :clap::clap:')
+			channel.send('P')
+			channel.send(':clap::clap:    :clap::clap:')
+			channel.send('Flopsssssss')
+		}
 	}else{
 		if (message === "ca marche pas" || message === "ça marche pas") {
 			channel.send('ÇA COURT');
