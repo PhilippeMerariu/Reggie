@@ -1,4 +1,4 @@
-let huhPattern = new RegExp('^([hH]uh|[wW]hat\\?*|[hH]m+|[nN]eed\\ssomething|[cC]ome\\shere\\soften|\\?*)\\?*') //search for huh?, what? hmm*?,
+let huhPattern = new RegExp('^([hH]uh|[wW]hat\\?*|[hH]m+|[nN]eed\\ssomething|[cC]ome\\shere\\soften|\\?)\\?*') //search for huh?, what? hmm*?,
 
 let lines = [
     "Huh?",
