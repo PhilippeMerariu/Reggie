@@ -11,14 +11,10 @@ let lines = [
 
 module.exports = {
     main: (channel, msg, modifiers) => {
-        if (!(msg === "fuck off")) {
-            channel.send(lines[Math.floor(Math.random(lines.length))]);
-        }
-        else
-            channel.send("Aight fuck you too");
+        channel.send(lines[Math.floor(Math.random(lines.length))]);
     },
     canHuh: (msg) => {
-        return huhPattern.test(msg) || msg === "fuck off";
+        return huhPattern.test(msg);
     },
     name: 'huh',
     type: 'passive'
