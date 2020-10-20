@@ -76,6 +76,9 @@ client.on('message', processMessage);
 			if (commands.notch.notchable(message)) {
 				commands.notch.main(channel);
 			}
+			if (commands.huh.canHuh(message)) {
+				commands.huh.main(channel, message);
+			}
 		}
 	}
 
