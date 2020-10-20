@@ -10,9 +10,14 @@ exports.commands = {
 		helpBox.setTitle("Help");
 		
 		var description = "";
-		console.log(typeof(commands));
 		//description = commands.beer.desc + "\n" + commands.drink.desc;
-		
+		for (const key in commands) {
+			//console.log(key);
+			//console.log(commands[key].desc);
+			if (commands[key].desc != undefined){
+				description += commands[key].desc + "\n";
+			}
+		}
 		helpBox.setDescription(description);
 		
 		channel.send(helpBox);
