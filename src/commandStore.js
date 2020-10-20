@@ -4,6 +4,7 @@ const flops = require('./commands/flops');
 const notch = require('./commands/notch');
 const caCourt = require('./commands/caCourt');
 const dice = require('./commands/dice');
+const huh = require('./commands/huh');
 
 exports.commands = {
     beer: beer,
@@ -11,5 +12,6 @@ exports.commands = {
     flops: flops,
     notch: notch,
     caCourt: caCourt,
-	dice: dice
+	dice: dice,
+    huh: huh
 }

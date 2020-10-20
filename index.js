@@ -50,10 +50,10 @@ client.on('message', processMessage);
 		
 		var dicePattern = new RegExp('\\d+[d]\\d+'); //search for '#d#' expression.
 		
-
+		let isBot = msg.author.bot;
 		//command and message handling block
 		//commands that look for keyword
-		if (message.startsWith(keyword)){
+		if (message.startsWith(keyword) && !isBot){
 			message = message.substring(2); //extracts the message without the "r!"
 			if (message === commands.beer.name) {
 				commands.beer.main(channel);
@@ -69,12 +69,15 @@ client.on('message', processMessage);
 			}
 		}
 		//commands that do NOT look for keyword
-		else{
+		else if (!isBot) {
 			if (commands.caCourt.caMarche(message)) {
 				commands.caCourt.court(channel);
 			}
 			if (commands.notch.notchable(message)) {
 				commands.notch.main(channel);
+			}
+			if (commands.huh.canHuh(message)) {
+				commands.huh.main(channel, message);
 			}
 		}
 	}
