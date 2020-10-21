@@ -76,8 +76,8 @@ client.on('message', processMessage);
 			else if (command === commands.drink.name){
 				commands.drink.main(channel);
 			}
-			else if (dicePattern.test(message)){
-				commands.dice.main(channel, message);
+			else if (dicePattern.test(command)){
+				commands.dice.main(channel, command);
 			}
 			else if (command === commands.help.name){
 				let helpBox = new Discord.MessageEmbed();
