@@ -43,14 +43,16 @@ client.on('message', processMessage)
  * @param msg
  */
 function processMessage(msg) {
-    //console.log(msg);
     var message = msg.content.toLowerCase()
     var channelId = msg.channel.id
-    //console.log(msg.channel.id);
     var channel = client.channels.cache.get(channelId)
 
+    var dicePattern = new RegExp('\\d+[d]\\d+') //search for '#d#' expression.
+
+    let isBot = msg.author.bot
     //command and message handling block
-    if (message.startsWith(keyword)) {
+    //commands that look for keyword
+    if (message.startsWith(keyword) && !isBot) {
         message = message.substring(2) //extracts the message without the "r!"
         if (message === commands.beer.name) {
             commands.beer.main(channel)
@@ -58,13 +60,23 @@ function processMessage(msg) {
             commands.flops.main(channel)
         } else if (message === commands.drink.name) {
             commands.drink.main(channel)
+        } else if (dicePattern.test(message)) {
+            commands.dice.main(channel, message)
+        } else if (message === commands.help.name) {
+            var helpBox = new Discord.MessageEmbed()
+            commands.help(channel, helpBox)
         }
-    } else {
+    }
+    //commands that do NOT look for keyword
+    else if (!isBot) {
         if (commands.caCourt.caMarche(message)) {
             commands.caCourt.court(channel)
         }
         if (commands.notch.notchable(message)) {
             commands.notch.main(channel)
+        }
+        if (commands.huh.canHuh(message)) {
+            commands.huh.main(channel, message)
         }
     }
 }

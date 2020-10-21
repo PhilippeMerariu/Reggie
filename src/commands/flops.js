@@ -11,6 +11,7 @@ module.exports = {
         channel.send('Flopsssssss')
     },
     name: 'flops',
-    type: 'active'
+    type: 'active',
+	desc: ' - r!flops \t--> F - L - O - P - S'
 }
 
