@@ -1,4 +1,10 @@
 config.json
-.prettierrc
 .vscode
 node_modules
+build
+npm-debug.log
+.env
+.DS_Store
+.idea
+.prettierrc
+
