@@ -5,5 +5,6 @@ module.exports = {
         channel.send(new Discord.MessageAttachment('./images/beer2.png'));
     },
     name: 'drink',
-    type: 'active'
+    type: 'active',
+	desc: ' - r!drink \t--> sends a delicious drink'
 }

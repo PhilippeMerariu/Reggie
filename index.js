@@ -67,6 +67,10 @@ client.on('message', processMessage);
 			else if (dicePattern.test(message)){
 				commands.dice.main(channel, message);
 			}
+			else if (message === commands.help.name){
+				var helpBox = new Discord.MessageEmbed();
+				commands.help(channel, helpBox);
+			}
 		}
 		//commands that do NOT look for keyword
 		else if (!isBot) {

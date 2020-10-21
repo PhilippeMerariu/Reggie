@@ -6,5 +6,6 @@ module.exports = {
         return (msg === "ca marche pas" || msg === "?a marche pas");
     },
     name: 'notch',
-    type: 'passive'
+    type: 'passive',
+	desc: ' - ca marche pas \t--> replies with \'CA COURT\''
 }
