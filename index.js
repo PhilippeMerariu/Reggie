@@ -67,6 +67,12 @@ client.on('message', processMessage);
 			else if (command === commands.flops.name) {
 				commands.flops.main(channel);
 			}
+			else if (command === commands.B.name){
+				commands.B.main(channel);
+			}
+			else if (command === commands.beet.name){
+				commands.beet.main(channel);
+			}
 			else if (command === commands.drink.name){
 				commands.drink.main(channel);
 			}
@@ -78,6 +84,8 @@ client.on('message', processMessage);
 				commands.help(channel, helpBox);
 				
 			}
+
+
 		}
 		//commands that do NOT look for keyword
 		else if (!isBot) {
