@@ -8,7 +8,10 @@ module.exports = {
             channel.send('Rolling dice (evan\'s test) ' + (i + 1))
             channel.send('.\n.\n.(evan\'s test)')
             // + 1 because dices should start at 1 not 0
-            channel.send('Result (evan\'s test)' + Math.floor(Math.random() * numSides + 1))
+            channel.send(
+                "Result (evan's test): " +
+                    Math.floor(Math.random() * numSides + 1)
+            )
         }
     },
     name: 'dice',

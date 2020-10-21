@@ -48,7 +48,7 @@ client.on('message', processMessage);
         var message = msg.content.toLowerCase()
         var channelId = msg.channel.id
         var channel = client.channels.cache.get(channelId)
-        var dicePattern = CommandStore.commands.dice.regexPattern //search for '#d#' expression.
+        var dicePattern = commands.dice.regexPattern //search for '#d#' expression.
 
         let isBot = msg.author.isBot
         //command and message handling block
