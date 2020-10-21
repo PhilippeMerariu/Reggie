@@ -1,13 +1,18 @@
 module.exports = {
-    main: (channel, modifiers) => {
-        let phrase = modifiers.join(' ');
-        phrase = phrase.trim();
-        let bLess = phrase.split(new RegExp('[bB]'));
-        phrase = bLess.join(':b:');
-        channel.send(phrase);
+    main: (channel, args) => {
+        let phrase = args.join(' ');
+
+        if (phrase === '')
+            channel.send(':b:');
+        else {
+            phrase = phrase.trim();
+            let bLess = phrase.split(new RegExp('[bB]'));
+            phrase = bLess.join(':b:');
+            channel.send(phrase);
+        }
     },
 
-    name: 'B',
+    name: 'b',
     type: 'active',
     desc: ' - r!B beer \t--> \':B:eer\''
 }

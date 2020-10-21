@@ -42,7 +42,7 @@ client.on('message', processMessage);
 	 * @param msg
 	 */
 	function processMessage (msg) {
-		let messageContent = msg.content.toLowerCase();
+		let messageContent = msg.content;
 		let channelId = msg.channel.id;
 		let channel = client.channels.cache.get(channelId);
 		let isBot = msg.author.bot;
@@ -53,13 +53,20 @@ client.on('message', processMessage);
 
 		//command and message handling block
 		//commands that look for keyword
-		if (messageContent.startsWith(keyword) && !isBot) {
+		if (messageContent.toLowerCase().startsWith(keyword) && !isBot) {
 
 			messageContent = messageContent.substring(2); //extracts the message without the "r!"
 
+			/**
+			 * command is r!<command>, it is lowerCase
+			 * args is everything after command, split by spaces, no case change. 	type: array of strings
+			 * argsLowerCase is args but all lower case. 							type: array of strings
+			 */
+
 			let messageWords = messageContent.trim().split(' ');
-			let command = messageWords[0];
+			let command = messageWords[0].toLowerCase();
 			let args = messageWords.slice(1, messageWords.length);
+			let argLowerCase = messageContent.trim().toLowerCase().split(' ').slice(1, messageWords.length);
 
 			if (command === commands.beer.name) {
 				commands.beer.main(channel);
@@ -68,7 +75,7 @@ client.on('message', processMessage);
 				commands.flops.main(channel);
 			}
 			else if (command === commands.B.name){
-				commands.B.main(channel);
+				commands.B.main(channel, args);
 			}
 			else if (command === commands.beet.name){
 				commands.beet.main(channel);
