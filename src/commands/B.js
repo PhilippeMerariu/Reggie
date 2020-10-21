@@ -14,5 +14,5 @@ module.exports = {
 
     name: 'b',
     type: 'active',
-    desc: ' - r!B beer \t--> \':B:eer\''
+    desc: ' - r!B <message> \t--> replaces letter b with :b:'
 }

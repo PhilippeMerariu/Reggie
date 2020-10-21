@@ -105,6 +105,9 @@ client.on('message', processMessage);
 			if (commands.huh.canHuh(messageContent)) {
 				commands.huh.main(channel, messageContent);
 			}
+			if (commands.wishluck.wish(messageContent)){
+				commands.wishluck.main(channel, msg.author.toString());
+			}
 		}
 	}
 

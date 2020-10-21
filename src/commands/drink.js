@@ -6,5 +6,5 @@ module.exports = {
     },
     name: 'drink',
     type: 'active',
-	desc: ' - r!drink \t--> sends a delicious drink'
+	desc: ' - r!drink \t--> sends a delicious drink :beers:'
 }

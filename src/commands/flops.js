@@ -12,6 +12,6 @@ module.exports = {
     },
     name: 'flops',
     type: 'active',
-	desc: ' - r!flops \t--> F - L - O - P - S'
+	desc: ' - r!flops \t--> :clap: F - L - O - P - S :clap:'
 }
 
