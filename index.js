@@ -42,6 +42,7 @@ client.on('message', processMessage);
 	 * @param msg
 	 */
 	function processMessage (msg) {
+
 		let messageContent = msg.content;
 		let channelId = msg.channel.id;
 		let channel = client.channels.cache.get(channelId);
@@ -49,8 +50,6 @@ client.on('message', processMessage);
 
 		let dicePattern = new RegExp('\\d+[d]\\d+'); //search for '#d#' expression.
 		
-
-
 		//command and message handling block
 		//commands that look for keyword
 		if (messageContent.toLowerCase().startsWith(keyword) && !isBot) {
