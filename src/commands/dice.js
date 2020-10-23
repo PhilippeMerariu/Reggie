@@ -5,11 +5,11 @@ module.exports = {
         var numSides = parseInt(xy[1])
 
         for (let i = 0; i < numDice || numDice <= 20; i++) {
-            channel.send("Rolling dice (evan's test) " + (i + 1))
-            channel.send(".\n.\n.(evan's test)")
+            channel.send("Rolling dice" + (i + 1))
+            channel.send(".\n.\n.")
             // + 1 because dices should start at 1 not 0
             channel.send(
-                "Result (evan's test): " +
+                "Result: " +
                     Math.floor(Math.random() * numSides + 1)
             )
         }
