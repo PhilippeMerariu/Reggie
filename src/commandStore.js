@@ -1,10 +1,13 @@
-const beer = require('./commands/beer');
-const drink = require('./commands/drink');
-const flops = require('./commands/flops');
-const notch = require('./commands/notch');
-const caCourt = require('./commands/caCourt');
-const dice = require('./commands/dice');
-const huh = require('./commands/huh');
+const beer = require('./commands/beer')
+const drink = require('./commands/drink')
+const flops = require('./commands/flops')
+const notch = require('./commands/notch')
+const beet = require('./commands/beet')
+const B = require('./commands/B')
+const caCourt = require('./commands/caCourt')
+const dice = require('./commands/dice')
+const huh = require('./commands/huh')
+const wishluck = require('./commands/wishluck')
 
 exports.commands = {
     help: (channel, helpBox, modifiers) => {
@@ -24,8 +27,11 @@ exports.commands = {
     beer: beer,
     drink: drink,
     flops: flops,
+    beet: beet,
+    B: B,
     notch: notch,
     caCourt: caCourt,
     dice: dice,
     huh: huh,
+    wishluck: wishluck,
 }
