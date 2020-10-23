@@ -1,9 +1,9 @@
 module.exports = {
     court: (channel, modifiers) => {
-        channel.send("?A COURT");
+        channel.send("ÇA COURT");
     },
     caMarche: (msg) => {
-        return (msg === "ca marche pas" || msg === "?a marche pas");
+        return (msg === "ca marche pas" || msg === "ça marche pas");
     },
     name: 'notch',
     type: 'passive',
