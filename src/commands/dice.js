@@ -4,7 +4,7 @@ module.exports = {
         var numDice = parseInt(xy[0])
         var numSides = parseInt(xy[1])
 
-        for (let i = 0; i < numDice; i++) {
+        for (let i = 0; i < numDice || numDice <= 20; i++) {
             channel.send("Rolling dice (evan's test) " + (i + 1))
             channel.send(".\n.\n.(evan's test)")
             // + 1 because dices should start at 1 not 0
