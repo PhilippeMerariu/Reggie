@@ -1,16 +1,41 @@
-const { token, keyword } = require('./config.json')
-const Discord = require('discord.js')
+const { token, keyword, firebaseConfig} = require('./config.json')
+//const Discord = require('discord.js')
+Discord = discordStart();
 const CommandStore = require('./src/commandStore')
 const client = new Discord.Client()
 
 commands = CommandStore.commands
 
-/**
+let firebase = require("firebase/app");
+require("firebase/auth");
+require("firebase/firestore");
+
+firebase.initializeApp(firebaseConfig);
+
+// FireStore Database
+let db = firebase.firestore();
+let auth = firebase.auth();
+
+/*
  * Setup
  */
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`)
-
+    console.log(`Logged in as ${client.user.tag}!`);
+	
+	//how to access firestore collection
+	let user = db.collection('Users').doc('xZJmVbWuWEMuzWXWIq1g').get()
+	.then(snapshot => {
+    if (snapshot.empty) {
+      console.log("empty");
+      return;
+    }  
+    console.log("success");
+	console.log(snapshot.data());
+  })
+  .catch(err => {
+    console.log("error: " + err);
+  });
+	
     //list servers bot is connected to
     console.log('\nServers:')
     client.guilds.cache.forEach((guild) => {
@@ -102,6 +127,20 @@ function processMessage(msg) {
             commands.wishluck.main(channel, msg.author.toString())
         }
     }
+}
+
+function fireStart(firebaseConfig){
+	const firebase =  require("firebase/app");	
+	require("firebase/auth");
+	require("firebase/firestore");
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	console.log(firebase);
+	return firebase.database();
+}
+
+function discordStart(){
+	return require('discord.js');
 }
 
 client.login(token) //bot token --> should NOT be commited and made public.
