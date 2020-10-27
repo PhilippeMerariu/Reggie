@@ -5,7 +5,8 @@ module.exports = {
         channel.send(new Discord.MessageAttachment('./images/bri-beetlejuice.png'));
     },
     juicable: (msg) => {
-        juice = new RegExp('(beetlejuice\s*){3}');
+        juice = new RegExp('(beetlejuice(\\s)*){3}');
+        console.log(juice.test(msg));
         return (juice.test(msg))
     },
     name: 'beetlejuice',
