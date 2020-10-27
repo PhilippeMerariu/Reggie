@@ -101,6 +101,9 @@ function processMessage(msg) {
         if (commands.wishluck.wish(messageContent)) {
             commands.wishluck.main(channel, msg.author.toString())
         }
+        if (commands.beetlejuice.juicable(messageContent)) {
+            commands.beetlejuice.main(channel);
+        }
     }
 }
 

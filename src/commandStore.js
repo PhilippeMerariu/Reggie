@@ -8,6 +8,7 @@ const caCourt = require('./commands/caCourt')
 const dice = require('./commands/dice')
 const huh = require('./commands/huh')
 const wishluck = require('./commands/wishluck')
+const beetlejuice = require('./commands/beetlejuice');
 
 exports.commands = {
     help: (channel, helpBox, modifiers) => {
@@ -34,4 +35,5 @@ exports.commands = {
     dice: dice,
     huh: huh,
     wishluck: wishluck,
+    beetlejuice: beetlejuice
 }
