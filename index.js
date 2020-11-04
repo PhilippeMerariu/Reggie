@@ -5,15 +5,9 @@ const client = new Discord.Client()
 
 commands = CommandStore.commands
 
-let firebase = require("firebase/app");
-require("firebase/auth");
-require("firebase/firestore");
-
-firebase.initializeApp(firebaseConfig);
-
 // FireStore Database
-let db = firebase.firestore();
-let auth = firebase.auth();
+db = fireStart();
+
 
 /*
  * Setup
@@ -39,7 +33,7 @@ client.on('ready', () => {
         })
     })
 	
-	testFirestore();
+	//testFirestore();
 })
 
 /**
@@ -97,7 +91,9 @@ function processMessage(msg) {
         } else if (command === commands.help.name) {
             let helpBox = new Discord.MessageEmbed()
             commands.help(channel, helpBox)
-        }
+        }else if (command === commands.time.name){
+			commands.time.main(channel, db);
+		}
     }
     //commands that do NOT look for keyword
     else if (!isBot) {
@@ -117,6 +113,14 @@ function processMessage(msg) {
 }
 
 function fireStart(){
+	let firebase = require("firebase/app");
+	require("firebase/auth");
+	require("firebase/firestore");
+
+	firebase.initializeApp(firebaseConfig);
+	
+	return firebase.firestore();
+	//let auth = firebase.auth(); //auth is needed when there is a sign-in service and auhtorization is required.
 }
 
 function discordStart(){
@@ -138,7 +142,7 @@ function testFirestore(){
 		console.log("error: " + err);
 	});
 	
-	//how to add a Document
+	//how to add a Document + Files
 	db.collection('Game').doc('Among Us').set({
 		type: 'online',
 		maxPlayers: '10',
