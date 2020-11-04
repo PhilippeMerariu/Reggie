@@ -9,6 +9,7 @@ const dice = require('./commands/dice')
 const huh = require('./commands/huh')
 const wishluck = require('./commands/wishluck')
 const beetlejuice = require('./commands/beetlejuice');
+const time = require('./commands/time')
 
 exports.commands = {
     help: (channel, helpBox, modifiers) => {
@@ -36,4 +37,5 @@ exports.commands = {
     huh: huh,
     wishluck: wishluck,
     beetlejuice: beetlejuice
+	time: time
 }

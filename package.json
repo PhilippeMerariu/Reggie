@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/PhilippeMerariu/BadgerBot#readme",
   "dependencies": {
-    "discord.js": "^12.4.0"
+    "discord.js": "^12.4.0",
+    "firebase": "^7.24.0",
+    "firebase-admin": "^9.3.0"
   }
 }

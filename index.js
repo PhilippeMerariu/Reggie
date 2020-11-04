@@ -1,16 +1,20 @@
-const { token, keyword } = require('./config.json')
-const Discord = require('discord.js')
+const { token, keyword, firebaseConfig} = require('./config.json')
+Discord = discordStart();
 const CommandStore = require('./src/commandStore')
 const client = new Discord.Client()
 
 commands = CommandStore.commands
 
-/**
+// FireStore Database
+db = fireStart();
+
+
+/*
  * Setup
  */
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`)
-
+    console.log(`Logged in as ${client.user.tag}!`);
+	
     //list servers bot is connected to
     console.log('\nServers:')
     client.guilds.cache.forEach((guild) => {
@@ -28,6 +32,8 @@ client.on('ready', () => {
             )
         })
     })
+	
+	//testFirestore();
 })
 
 /**
@@ -85,7 +91,9 @@ function processMessage(msg) {
         } else if (command === commands.help.name) {
             let helpBox = new Discord.MessageEmbed()
             commands.help(channel, helpBox)
-        }
+        }else if (command === commands.time.name){
+			commands.time.main(channel, db);
+		}
     }
     //commands that do NOT look for keyword
     else if (!isBot) {
@@ -105,6 +113,50 @@ function processMessage(msg) {
             commands.beetlejuice.main(channel);
         }
     }
+}
+
+function fireStart(){
+	let firebase = require("firebase/app");
+	require("firebase/auth");
+	require("firebase/firestore");
+
+	firebase.initializeApp(firebaseConfig);
+	
+	return firebase.firestore();
+	//let auth = firebase.auth(); //auth is needed when there is a sign-in service and auhtorization is required.
+}
+
+function discordStart(){
+	return require('discord.js');
+}
+
+function testFirestore(){
+	//how to access firestore collection
+	let user = db.collection('Users').doc('xZJmVbWuWEMuzWXWIq1g').get()
+	.then(snapshot => {
+    if (snapshot.empty) {
+		console.log("empty");
+		return;
+    }  
+    console.log("success");
+	console.log(snapshot.data());
+	})
+	.catch(err => {
+		console.log("error: " + err);
+	});
+	
+	//how to add a Document + Files
+	db.collection('Game').doc('Among Us').set({
+		type: 'online',
+		maxPlayers: '10',
+		platform: 'mobile'	
+	})
+	.then(() => {
+		console.log("document added");
+	})
+	.catch(err => {
+		console.log("error: " + err);
+	})
 }
 
 client.login(token) //bot token --> should NOT be commited and made public.
