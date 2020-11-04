@@ -1,5 +1,4 @@
 const { token, keyword, firebaseConfig} = require('./config.json')
-//const Discord = require('discord.js')
 Discord = discordStart();
 const CommandStore = require('./src/commandStore')
 const client = new Discord.Client()
@@ -22,20 +21,6 @@ let auth = firebase.auth();
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 	
-	//how to access firestore collection
-	let user = db.collection('Users').doc('xZJmVbWuWEMuzWXWIq1g').get()
-	.then(snapshot => {
-    if (snapshot.empty) {
-      console.log("empty");
-      return;
-    }  
-    console.log("success");
-	console.log(snapshot.data());
-  })
-  .catch(err => {
-    console.log("error: " + err);
-  });
-	
     //list servers bot is connected to
     console.log('\nServers:')
     client.guilds.cache.forEach((guild) => {
@@ -53,6 +38,8 @@ client.on('ready', () => {
             )
         })
     })
+	
+	testFirestore();
 })
 
 /**
@@ -129,18 +116,40 @@ function processMessage(msg) {
     }
 }
 
-function fireStart(firebaseConfig){
-	const firebase =  require("firebase/app");	
-	require("firebase/auth");
-	require("firebase/firestore");
-	// Initialize Firebase
-	firebase.initializeApp(firebaseConfig);
-	console.log(firebase);
-	return firebase.database();
+function fireStart(){
 }
 
 function discordStart(){
 	return require('discord.js');
+}
+
+function testFirestore(){
+	//how to access firestore collection
+	let user = db.collection('Users').doc('xZJmVbWuWEMuzWXWIq1g').get()
+	.then(snapshot => {
+    if (snapshot.empty) {
+		console.log("empty");
+		return;
+    }  
+    console.log("success");
+	console.log(snapshot.data());
+	})
+	.catch(err => {
+		console.log("error: " + err);
+	});
+	
+	//how to add a Document
+	db.collection('Game').doc('Among Us').set({
+		type: 'online',
+		maxPlayers: '10',
+		platform: 'mobile'	
+	})
+	.then(() => {
+		console.log("document added");
+	})
+	.catch(err => {
+		console.log("error: " + err);
+	})
 }
 
 client.login(token) //bot token --> should NOT be commited and made public.
