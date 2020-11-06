@@ -1,17 +1,17 @@
 module.exports = {
     main: (channel, modifiers) => {
-        channel.send('F')
-        channel.send(':clap::clap:    :clap::clap:')
-        channel.send('L')
-        channel.send(':clap::clap:    :clap::clap:')
-        channel.send('O')
-        channel.send(':clap::clap:    :clap::clap:')
-        channel.send('P')
-        channel.send(':clap::clap:    :clap::clap:')
-        channel.send('Flopsssssss')
+		let flop_str = 'F\n';
+		flop_str += ':clap::clap:    :clap::clap:\n';
+		flop_str += 'L\n';
+		flop_str += ':clap::clap:    :clap::clap:\n';
+		flop_str += 'O\n';
+		flop_str += ':clap::clap:    :clap::clap:\n';
+		flop_str += 'P\n';
+		flop_str += ':clap::clap:    :clap::clap:\n';
+		flop_str += 'Flopsssssss';
+		channel.send(flop_str);		
     },
     name: 'flops',
     type: 'active',
 	desc: ' - r!flops \t--> :clap: F - L - O - P - S :clap:'
 }
-
