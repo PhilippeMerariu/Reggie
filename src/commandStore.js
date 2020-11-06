@@ -10,6 +10,7 @@ const huh = require('./commands/huh');
 const wishluck = require('./commands/wishluck');
 const beetlejuice = require('./commands/beetlejuice');
 const time = require('./commands/time');
+const hao = require('./commands/hao');
 
 exports.commands = {
     help: (channel, helpBox, modifiers) => {
@@ -37,5 +38,6 @@ exports.commands = {
     huh: huh,
     wishluck: wishluck,
     beetlejuice: beetlejuice,
-	time: time
+	time: time,
+	hao: hao
 }

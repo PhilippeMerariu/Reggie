@@ -79,6 +79,7 @@ function processMessage(msg) {
         if (command === commands.beer.name) {
             commands.beer.main(channel)
         } else if (command === commands.flops.name) {
+			msg.delete();
             commands.flops.main(channel)
         } else if (command === commands.B.name) {
             commands.B.main(channel, args)
@@ -93,6 +94,9 @@ function processMessage(msg) {
             commands.help(channel, helpBox)
         }else if (command === commands.time.name){
 			commands.time.main(channel, db);
+		} else if (command === commands.hao.name){
+			msg.delete();
+			commands.hao.main(channel);
 		}
     }
     //commands that do NOT look for keyword
