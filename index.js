@@ -93,7 +93,7 @@ function processMessage(msg) {
             let helpBox = new Discord.MessageEmbed()
             commands.help(channel, helpBox)
         }else if (command === commands.time.name){
-			commands.time.main(channel, db);
+			commands.time.main(channel, db, argLowerCase);
 		} else if (command === commands.hao.name){
 			msg.delete();
 			commands.hao.main(channel);
@@ -138,12 +138,12 @@ function testFirestore(){
 	//how to access firestore collection
 	let user = db.collection('Users').doc('xZJmVbWuWEMuzWXWIq1g').get()
 	.then(snapshot => {
-    if (snapshot.empty) {
-		console.log("empty");
-		return;
-    }  
-    console.log("success");
-	console.log(snapshot.data());
+		if (snapshot.empty) {
+			console.log("empty");
+			return;
+		}  
+		console.log("success");
+		console.log(snapshot.data());
 	})
 	.catch(err => {
 		console.log("error: " + err);
