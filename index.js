@@ -53,6 +53,7 @@ function processMessage(msg) {
     let channelId = msg.channel.id
     let channel = client.channels.cache.get(channelId)
     let isBot = msg.author.bot
+	let mention = msg.mentions.users.first(); //user mentioned
 
     let dicePattern = commands.dice.regexPattern //search for '#d#' expression.
 
@@ -93,7 +94,7 @@ function processMessage(msg) {
             let helpBox = new Discord.MessageEmbed()
             commands.help(channel, helpBox)
         }else if (command === commands.time.name){
-			commands.time.main(channel, db, argLowerCase);
+			commands.time.main(channel, db, mention);
 		} else if (command === commands.hao.name){
 			msg.delete();
 			commands.hao.main(channel);

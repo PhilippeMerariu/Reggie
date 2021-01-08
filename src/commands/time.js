@@ -1,13 +1,9 @@
 module.exports = {
-    main: (channel, db, modifiers) => {
+    main: (channel, db, user, modifiers) => {
 		let time = Math.floor(Math.random() * 24) + 1; //randomize time [1-24]
-		let user = modifiers[0];
-		if (user == undefined){
-			user = '';
-		}
         db.collection('Time').doc('LogTime').set({
 			timestamp: time,
-			username: user
+			username: user.toString()
 		})
 		.then(() => {
 			console.log("timestamp added");
