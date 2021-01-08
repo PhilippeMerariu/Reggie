@@ -92,12 +92,14 @@ function processMessage(msg) {
         } else if (command === commands.help.name) {
             let helpBox = new Discord.MessageEmbed()
             commands.help(channel, helpBox)
-        }else if (command === commands.time.name){
+        } else if (command === commands.time.name){
 			commands.time.main(channel, db);
 		} else if (command === commands.hao.name){
 			msg.delete();
 			commands.hao.main(channel);
-		}
+		} else if (command === commands.joke.name){
+            commands.joke.main(channel)
+        }
     }
     //commands that do NOT look for keyword
     else if (!isBot) {
