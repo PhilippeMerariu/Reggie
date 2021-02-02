@@ -4,18 +4,31 @@ module.exports = {
         let numDice = parseInt(xy[0])
         let numSides = parseInt(xy[1])
         let max = 20
+        let total = 0;
 
-        for (let i = 0; i < numDice; i++) {
-            if (i > max)
-                break;
-            channel.send("Rolling dice" + (i + 1))
-            channel.send(".\n.\n.")
-            // + 1 because dices should start at 1 not 0
-            channel.send(
-                "Result: " +
-                    Math.floor(Math.random() * numSides + 1)
-            )
+        const rollDice = async () => {
+            for (let i = 0; i < numDice; i++) {
+                if (i > max)
+                    break;
+                await channel.send("Rolling dice " + (i + 1) + " --> :game_die:")
+                    .then((m) => {
+                        let res = Math.floor(Math.random() * numSides + 1);
+                        total += res;
+                        setTimeout(() => {
+                            m.edit("Rolling dice " + (i + 1) + " --> " + res);
+                        }, 2000);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
         }
+
+        rollDice().then(() => {
+            setTimeout(() => {
+                channel.send(":game_die: Total score: " + total + " :game_die:");
+            }, 2500);          
+        });
     },
     name: 'dice',
     type: 'active',
