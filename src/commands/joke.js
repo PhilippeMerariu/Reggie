@@ -6,7 +6,6 @@ module.exports = {
         jokeAPI.getJokes()
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             joke = data; //JSON.parse(data);
             if(joke.type == "single"){
                 channel.send(joke.joke);
