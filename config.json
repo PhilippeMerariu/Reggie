@@ -1,0 +1,28 @@
+{
+	"token": "NzY3ODE5Njc5NzYxNjk0NzUw.X43dzQ.J8YKFg6gC_bib72EhgH3MMjtGMA",
+	"keyword" : "r!",
+	"firestoreConfig" : {
+		"type": "service_account",
+		"project_id": "compact-marker-111317",
+		"private_key_id": "0fa9ac04e56e7a699c5469d49284abafbe32c399",
+		"private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCypGCUTuRaAUQ5\noHR547zVMFjIrp55x9sMywcRJhBiBUmfr+7hoOrldyLl5BIpB/dUftLXDHdCnRlb\nXtVhGzuFpmiR+4NSgFCHLpnVRW5A2F7L4QIRU7BW8T8IL8DIaBAYOFMVVnxUEAjK\nexDWwhMFGDacCNnrKbd8B1vw5sBgSgOLz/KISTP3JK5iscx6MiYWRo3T7nCo49u+\nCXR3cJwVIOdT2HDwqWOa0RbdWybOtEHnOteetTBe6EXqw+q47eaJIn95JHXlnMfo\nFp6dp7i2cyahoyxIOM/ypVQ6Nbyjko4jPcPiJbzuNRYM9Z3Xqy3XiDGIwsym0q7L\n0pYuGt8dAgMBAAECggEAJxBQ2j2CK7hZLezLa5gEQ+4ljAS7PNAaM2r2KabUMEsN\ntXCoYQhqNTFfHTxJSFWonP56pnHgZl2qHNPY/zoQQwKHnVyNc+4BLf5fv0ZGfMGT\nwSt740QUrH5mlSi0FF7FHja63FCkMVGsSnKs1PltZVDNKEO7O3RM3j9RuJUM/kDz\nRd0tGHz3U6wUSu1wD5aVPrnLUc4KfYSZKoD2+rpMpjEDS39jz7rjhgmXmmBJeZG8\nZEpQsZMdkVwiFXS1HL0LofKTD7colFNqQ41PBHxle8VM1ICR/bgiBqPrwve8SBSa\nFYZjnR2MH0DxHaS7FtROWM+QbHh5zI/S2pdoXC+VlQKBgQDm7h3ffDLOpFOydOjN\nxp3a8QoTiNBXhmlZt8HCB2I5Rudn9EP+VK9BxSKlee7x7yA7JMEqCzdaMdZASYKi\nq76VAQOTyQouF8e9m01VidC2FUosX2b6VP6PFdhR0fsBMRVxVpcRbjlMwPn8X9go\nX0szQC7bwDPPHvCR/FCqj1NOcwKBgQDGCRmceeR9JE+L9gr27jIDIfdvWbAJYxa6\nj27GAOxU5irk/S0aQUEd3s66fGE5JTAilyBKPWlPHtawlvgspCClYezZdkr4hInz\nL3HDOx0yLcjO7PvlYey2iFf/Q+Lt5Yx9a44me/oimX/nRfBgYaVJHdN2eQhZa1gl\ncvPju1yoLwKBgQCeu95c2Ao0cE/3wtSjXXr0G+tJMinDf+i6esz8igbCSDKYChcS\nozM0ikUeaYoNUslc3g7Iz5zkqo0S83SQTG1cDq5ezznoJQBvHGkz+t8zyb6Kcalf\nOT0hLWrcEvHuB8cteM+uc41/bMZo65ixZ49RUzTiaGM0Y5gJQN5R3uLscQKBgQCX\nuv8xgb8MFtcP0IskGOqetdakLR6Qgqg2dpEUCj8I6XUyD70P4bFnln/kKEpBg3m2\n9v2ZhCX8pg8uK+2oHnSY4kebcmQMt1gOyGosgE1lVekGilKRtI6uaBasETJ8vaT/\nr3mxiMnk2qFB7Lc40XfXZo/PtPotsO5PexzcfoCGpwKBgGqUyvLVLHQgOhXVBd7q\nnD4DrG5xVTByRnHK6QmJigyTRfJU2Dx4RTYG0JmmzntaPTnvjFzCpHZCa2+0tMS2\nWZfbyr5etV1kDy0K1yerKJT9s19ym4QbRVg6pguz5mUisyij8hK+yLKirPn30OiE\nZmFPoFlVzGWyVybp6v/M06i6\n-----END PRIVATE KEY-----\n",
+		"client_email": "reggiedbkey@compact-marker-111317.iam.gserviceaccount.com",
+		"client_id": "115448420213383463192",
+		"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+		"token_uri": "https://oauth2.googleapis.com/token",
+		"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+		"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/reggiedbkey%40compact-marker-111317.iam.gserviceaccount.com"
+	},
+	"firebaseConfig" : {
+		"apiKey": "AIzaSyC8LsuYR8-_sktK_MCQzirH5Sax5Yyup8c",
+		"authDomain": "reggiebot-3d09c.firebaseapp.com",
+		"databaseURL": "https://reggiebot-3d09c.firebaseio.com",
+		"projectId": "reggiebot-3d09c",
+		"storageBucket": "reggiebot-3d09c.appspot.com",
+		"messagingSenderId": "254922388659",
+		"appId": "1:254922388659:web:6ee2724135e020d82becc6",
+		"measurementId": "G-XCDLZQK5F4"
+	}
+	
+	
+}

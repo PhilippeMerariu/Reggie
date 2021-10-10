@@ -1,32 +1,23 @@
 const https = require('https');
+const jokeAPI = require('sv443-joke-api')
 
 module.exports = {
     main: (channel, modifiers) => {
-        const jokeurl = "https://v2.jokeapi.dev"; //JokeAPI : https://sv443.net/jokeapi/v2/
-        const categories = ["Any"]; //Any, Misc, Programming, Dark, Pun, Spooky, Christmas 
-        //const params = []
-        //var request = '${baseURL}/joke/${categories.join(",")}}'
-        var request = jokeurl + "/joke/Any";
-        https.get(request, res => {
-            res.on('data', chunk => {
-                var randomJoke = JSON.parse(chunk.toString());
-                //console.log(randomJoke);
-                if(randomJoke.type == "single"){
-                    channel.send(randomJoke.joke);
-                }
-                else{ //two part joke
-                    channel.send(randomJoke.setup);
-                    setTimeout(() => {
-                        channel.send(randomJoke.delivery);
-                    }, 3000);
-                }
-            });
-
-            res.on('error', err => {
-                console.error("Error: " + err);
-            });
+        jokeAPI.getJokes()
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            joke = data; //JSON.parse(data);
+            if(joke.type == "single"){
+                channel.send(joke.joke);
+            }
+            else{ //two part joke
+                channel.send(joke.setup);
+                setTimeout(() => {
+                    channel.send(joke.delivery);
+                }, 3000);
+            }
         });
-        channel.send();
     },
     name: 'joke',
     type: 'active',
